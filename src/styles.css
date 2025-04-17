@@ -1,0 +1,111 @@
+body {
+  margin: 0;
+  height: 100vh; /* Задаем высоту на всю видимую область */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('/fon.jpg'); /* Путь к изображению в папке public */
+  background-size: cover; /* Масштабируем изображение для полного покрытия */
+  background-position: center; /* Центрируем изображение на экране */
+  background-repeat: no-repeat; /* Не повторяем изображение */
+}
+
+.home {
+  background-size: cover;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.buttons .button {
+  margin: 10px;
+  padding: 10px 20px; /* Уменьшен размер кнопок */
+  background-color: gray; /* Цвет кнопок изменен на серый */
+  color: white; /* Цвет текста кнопок */
+  text-decoration: none;
+  border-radius: 25px; /* Сделаны кнопки овальными */
+  font-size: 25px; /* Увеличен размер шрифта */
+  border: none; /* Убраны границы у кнопок */
+  cursor: pointer; /* Курсор при наведении */
+}
+
+.pizza, .napitki {
+  text-align: center;
+  padding: 20px;
+}
+
+.pizza-items, .napitki-items {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.pizza-item, .napitki-item {
+  border: 1px solid #ddd;
+  padding: 10px;
+  width: 100px;
+  height: 50px;
+  border-radius: 10px;
+}
+
+.order-button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+nav ul {
+  list-style-type: none; /* Убираем маркеры списка */
+  display: flex;         /* Используем флекс-бокс для горизонтального расположения */
+  padding: 0;           /* Убираем внутренние отступы */
+  margin: 0;            /* Убираем внешние отступы */
+}
+
+nav ul li {
+  margin-left: 15px;   /* Добавляем отступ слева */
+  margin-right: 30px;  /* Отступ между элементами */
+}
+
+nav ul li:last-child {
+  margin-right: 0;      /* Убираем отступ справа у последнего элемента */
+}
+
+header {
+  text-align: center;
+  margin-bottom: 40px;
+  color: white;
+  font-size: 2em;
+  margin-left: 15px; /* Сдвигаем заголовок вправо */
+}
+
+nav ul li a {
+  display: inline-block;    /* Делает ссылку блочным элементом для легкого управления размерами */
+  text-decoration: none;    /* Убираем подчеркивание */
+  background-color: gray;   /* Цвет кнопки */
+  color: white;             /* Цвет текста */
+  padding: 10px 20px;       /* Внутренние отступы в кнопке */
+  border-radius: 5px;       /* Скругление углов */
+  font-size: 1.2em;         /* Размер шрифта */
+  transition: background-color 0.3s; /* Плавный переход цвета при наведении */
+}
+
+nav ul li a:hover {
+  background-color: darkgray; /* Более темный цвет при наведении */
+}
+
+html, body {
+  height: 100%;
+  margin: 0; /* Убираем отступы по умолчанию */
+  overflow: hidden; /* Скрываем прокрутку, если это не нужно */
+}
+
+app-root {
+  height: 100vh; /* Убедитесь, что основной элемент занимает высоту экрана */
+  display: flex;
+  flex-direction: column; /* Обеспечиваем вертикальное размещение элементов */
+}
+
+

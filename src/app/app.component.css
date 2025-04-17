@@ -1,0 +1,43 @@
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Центрирование кнопок */
+  }
+
+nav li {
+  margin: 0 15px; /* Отступ между кнопками */
+}
+
+nav a {
+  display: inline-block;
+  text-decoration: none;
+  background-color: gray; /* Цвет фона */
+  color: white; /* Цвет текста */
+  padding: 20px; /* Отступ внутри кнопки */
+  width: 100px; /* Ширина кнопки */
+  height: 30px; /* Высота кнопки для квадратной формы */
+  text-align: center; /* Центрирование текста внутри кнопки */
+  border-radius: 25px; /* Закругление углов */
+  transition: background-color 0.3s; /* Плавный переход цвета фона */
+}
+
+nav a:hover {
+  background-color: gray; /* Цвет фона при наведении */
+}
+
+/* app.component.css или styles.css */
+body {
+  margin: 0;
+  height: 100vh; /* Задаем высоту на всю видимую область */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('/fon.jpg'); /* Путь к изображению в папке public */
+  background-size: cover; /* Масштабируем изображение для полного покрытия */
+  background-position: center; /* Центрируем изображение на экране */
+  background-repeat: no-repeat; /* Не повторяем изображение */
+
+}
+

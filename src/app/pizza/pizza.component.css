@@ -1,0 +1,61 @@
+:host {
+  display: block; /* Позволяет элементу занимать всю доступную ширину */
+  width: 100vw; /* Ширина на весь экран */
+  height: 100vh; /* Высота на весь экран */
+  overflow: auto; /* Позволяет прокручивать содержимое, если оно превышает высоту */
+}
+.pizza {
+  text-align: center;
+  padding: 30px;
+  height: auto; /* Позволяет элементу корректировать высоту */
+  background-image: url('/fon2.jpeg'); /* Фоновое изображение */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+}
+
+.pizza-items {
+  display: flex; /* Размещаем элементы в строку */
+  justify-content: center; /* Центрируем элементы по горизонтали */
+  flex-wrap: wrap; /* Позволяем элементам оборачиваться */
+}
+
+.pizza-item {
+  margin: 20px; /* Отступы между элементами */
+  /* Убираем белый фон */
+  background-color: transparent; /* Прозрачный фон */
+  border: none; /* Убираем рамку */
+  width: 220px; /* Ширина элемента */
+  height: auto; /* Автоматическая высота */
+  position: relative; /* Для использования counter-wrapper */
+}
+
+.pizza-item img {
+  width: 100%; /* Ширина изображения под размер элемента */
+  height: auto; /* Автоматическая высота */
+  border-radius: 5px; /* Закругленные углы изображения */
+}
+
+.price {
+  color: dodgerblue;
+  font-size: 28px; /* Размер шрифта для цены */
+  font-weight: bold; /* Полужирный шрифт */
+  margin: 10px 0; /* Отступы сверху и снизу */
+}
+
+.order-button {
+  background-color: gray; /* Цвет кнопки */
+  color: white; /* Цвет текста */
+  border: none;
+  padding: 10px 15px; /* Отступы кнопки */
+  border-radius: 5px; /* Закругленные углы */
+  cursor: pointer;
+  font-size: 16px; /* Размер текста кнопки */
+}
+
+.order-button:hover {
+  background-color: darkgray; /* Цвет кнопки при наведении */
+}
+
+
