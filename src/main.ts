@@ -18,11 +18,7 @@ const routes: Routes = [
     path: 'napitki',
     component: NapitkiComponent
   },
-  {
-    path: '',
-    redirectTo: 'menu',
-    pathMatch: 'full' as const  // Важно: 'full' как литеральный тип
-  }
+
 ];
 
 bootstrapApplication(AppComponent, {

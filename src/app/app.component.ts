@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, inject, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet, Router } from '@angular/router';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterModule, RouterOutlet],
+  imports: [CommonModule, RouterModule, RouterOutlet, AsyncPipe],
   template: `
-    <header>
+    <header *ngIf="showHeader()">
       <h1>Доставка еды</h1>
       <nav>
         <ul>
@@ -21,4 +22,10 @@ import { RouterModule, RouterOutlet } from '@angular/router';
   `,
   styles: []
 })
-export class AppComponent {}
+export class AppComponent {
+  private router = inject(Router);
+
+  showHeader(): boolean {
+    return this.router.url !== '/pizza';
+  }
+}

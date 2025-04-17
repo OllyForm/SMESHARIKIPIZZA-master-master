@@ -4,6 +4,32 @@
   height: 100vh; /* Высота на весь экран */
   overflow: auto; /* Позволяет прокручивать содержимое, если оно превышает высоту */
 }
+.cart {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+.cart img {
+  width: 30px; /* Размер иконки */
+  height: 30px; /* Размер иконки */
+  margin-right: 10px;
+}
+
+.count {
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный фон */
+  border-radius: 5px; /* Закругленные углы */
+  padding: 2px 5px; /* Отступы внутри счетчика */
+  color: white; /* Цвет текста счетчика */
+}
 .pizza {
   text-align: center;
   padding: 30px;
