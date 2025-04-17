@@ -4,10 +4,49 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Наше меню пиццы</title>
-  <style>
-  </style>
+  <script>
+    // Глобальные функции
+    function addToCart(name, price) {
+      let cart = JSON.parse(localStorage.getItem('pizzaCart')) || {};
+
+      if (cart[name]) {
+        cart[name].count += 1;
+      } else {
+        cart[name] = { price: price, count: 1 };
+      }
+
+      localStorage.setItem('pizzaCart', JSON.stringify(cart));
+      updateCartDisplay();
+    }
+
+    function updateCartDisplay() {
+      const cart = JSON.parse(localStorage.getItem('pizzaCart')) || {};
+      const cartItemsList = document.getElementById('cart-items');
+      let totalCount = 0;
+
+      cartItemsList.innerHTML = '';
+
+      for (const [name, item] of Object.entries(cart)) {
+        totalCount += item.count;
+        const li = document.createElement('li');
+        li.textContent = `${name} x ${item.count} — ${item.count * item.price} ₽`;
+        cartItemsList.appendChild(li);
+      }
+
+      document.getElementById('cart-count').textContent = totalCount;
+    }
+
+    function clearCart() {
+      localStorage.removeItem('pizzaCart');
+      updateCartDisplay();
+    }
+
+    // Инициализация при загрузке страницы
+    window.addEventListener('DOMContentLoaded', updateCartDisplay);
+  </script>
 </head>
 <body>
+<!-- Остальная часть вашего HTML -->
 <h2>Наша пицца</h2>
 <div class="pizza">
   <div class="pizza-items">
@@ -41,41 +80,7 @@
   <img src="/korzinanew.png" alt="Корзина" width="50" />
   <p>Итого: <span id="cart-count" class="count">0</span> пицц</p>
   <ul id="cart-items"></ul>
+  <button onclick="clearCart()">Очистить корзину</button>
 </div>
-
-<script>
-  // Получаем корзину из localStorage или создаем новую
-  const cart = JSON.parse(localStorage.getItem('pizzaCart')) || {};
-
-  function saveCart() {
-    localStorage.setItem('pizzaCart', JSON.stringify(cart));
-    updateCartDisplay();
-  }
-
-  function addToCart(name, price) {
-    if (cart[name]) {
-      cart[name].count += 1;
-    } else {
-      cart[name] = { price, count: 1 };
-    }
-    saveCart();
-  }
-
-  function updateCartDisplay() {
-    const cartCount = Object.values(cart).reduce((sum, item) => sum + item.count, 0);
-    document.getElementById('cart-count').innerText = cartCount;
-
-    const cartItemsList = document.getElementById('cart-items');
-    cartItemsList.innerHTML = '';
-    for (const [name, item] of Object.entries(cart)) {
-      const li = document.createElement('li');
-      li.textContent = `${name} x ${item.count} — ${item.count * item.price} ₽`;
-      cartItemsList.appendChild(li);
-    }
-  }
-
-  // Обновляем корзину при загрузке
-  updateCartDisplay();
-</script>
 </body>
 </html>
