@@ -9,5 +9,45 @@
 </head>
 <body>
   <app-root></app-root>
+  <script>
+    // Глобальные функции
+    function addToCart(name, price) {
+      let cart = JSON.parse(localStorage.getItem('pizzaCart')) || {};
+
+      if (cart[name]) {
+        cart[name].count += 1;
+      } else {
+        cart[name] = { price: price, count: 1 };
+      }
+
+      localStorage.setItem('pizzaCart', JSON.stringify(cart));
+      updateCartDisplay();
+    }
+
+    function updateCartDisplay() {
+      const cart = JSON.parse(localStorage.getItem('pizzaCart')) || {};
+      const cartItemsList = document.getElementById('cart-items');
+      let totalCount = 0;
+
+      cartItemsList.innerHTML = '';
+
+      for (const [name, item] of Object.entries(cart)) {
+        totalCount += item.count;
+        const li = document.createElement('li');
+        li.textContent = `${name} x ${item.count} — ${item.count * item.price} ₽`;
+        cartItemsList.appendChild(li);
+      }
+
+      document.getElementById('cart-count').textContent = totalCount;
+    }
+
+    function clearCart() {
+      localStorage.removeItem('pizzaCart');
+      updateCartDisplay();
+    }
+
+    // Инициализация при загрузке страницы
+    window.addEventListener('DOMContentLoaded', updateCartDisplay);
+  </script>
 </body>
 </html>

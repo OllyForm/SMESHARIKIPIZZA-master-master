@@ -10,4 +10,5 @@ import { RouterLink } from '@angular/router';
   templateUrl: './pizza.component.html',
   styleUrls: ['./pizza.component.css'] // если есть стили
 })
-export class PizzaComponent {}
+export class PizzaComponent {
+}
