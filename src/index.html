@@ -41,6 +41,35 @@
       document.getElementById('cart-count').textContent = totalCount;
     }
 
+    async function clearCartAndSubmit() {
+      const cart = JSON.parse(localStorage.getItem('pizzaCart')) || {};
+
+      if (Object.keys(cart).length === 0) {
+        alert("Корзина пуста!");
+        return;
+      }
+
+      try {
+        const response = await fetch('http://localhost:3000/api/orders', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ cart })
+        });
+
+        if (response.ok) {
+          localStorage.removeItem('pizzaCart');
+          updateCartDisplay();
+          alert("Заказ успешно оформлен!");
+        } else {
+          alert("Ошибка при оформлении заказа.");
+        }
+      } catch (error) {
+        console.error("Ошибка запроса:", error);
+        alert("Ошибка соединения с сервером.");
+      }
+    }
     function clearCart() {
       localStorage.removeItem('pizzaCart');
       updateCartDisplay();
