@@ -25,12 +25,15 @@
     }
 
     function updateCartDisplay() {
-      const cart = JSON.parse(localStorage.getItem('pizzaCart')) || {};
       const cartItemsList = document.getElementById('cart-items');
+      const cartCount = document.getElementById('cart-count');
+      if (!cartItemsList || !cartCount) return; // нет нужных элементов — выходим
+
+      const cart = JSON.parse(localStorage.getItem('pizzaCart')) || {};
       let totalCount = 0;
+      console.log("Корзина перед отправкой:", cart);  // Проверь, что выводится в консоль
 
       cartItemsList.innerHTML = '';
-
       for (const [name, item] of Object.entries(cart)) {
         totalCount += item.count;
         const li = document.createElement('li');
@@ -38,7 +41,7 @@
         cartItemsList.appendChild(li);
       }
 
-      document.getElementById('cart-count').textContent = totalCount;
+      cartCount.textContent = totalCount;
     }
 
     async function clearCartAndSubmit() {
@@ -50,6 +53,8 @@
       }
 
       try {
+        const cart = JSON.parse(localStorage.getItem('pizzaCart')) || {};
+        console.log("Корзина перед отправкой:", cart);  // Убедись, что выводится корректно
         const response = await fetch('http://localhost:3000/api/orders', {
           method: 'POST',
           headers: {
