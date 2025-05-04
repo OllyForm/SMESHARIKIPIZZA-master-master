@@ -31,14 +31,15 @@
   color: white; /* Цвет текста счетчика */
 }
 .pizza {
+  color: #21930e;
   text-align: center;
   padding: 30px;
   height: auto; /* Позволяет элементу корректировать высоту */
-  background-image: url('/fon2.jpeg'); /* Фоновое изображение */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   height: 100%;
+  font-size: 29px;
 }
 
 .pizza-items {
@@ -64,7 +65,7 @@
 }
 
 .price {
-  color: dodgerblue;
+  color: #21930e;
   font-size: 28px; /* Размер шрифта для цены */
   font-weight: bold; /* Полужирный шрифт */
   margin: 10px 0; /* Отступы сверху и снизу */

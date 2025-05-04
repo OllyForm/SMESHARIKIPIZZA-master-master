@@ -7,8 +7,7 @@
 
 </head>
 <body>
-<!-- Остальная часть вашего HTML -->
-<h2>Наша пицца</h2>
+
 <div class="pizza">
   <div class="pizza-items">
     <div class="pizza-item">
@@ -32,8 +31,13 @@
       <button class="order-button" onclick="addToCart('Груша', 599)">Заказать</button>
     </div>
   </div>
+  <div class="address-input">
+    <label for="address">Адрес доставки:</label><br>
+    <input type="text" id="address" name="address" placeholder="Введите ваш адрес..." style="width: 100%; padding: 8px; margin: 10px 0;">
+  </div>
 
-  <a href="/menu">← Назад в меню</a>
+  <a href="/menu" style="color: #21930e;;">← Назад в меню</a>
+
 </div>
 
 <!-- Корзина -->

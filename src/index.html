@@ -46,21 +46,26 @@
 
     async function clearCartAndSubmit() {
       const cart = JSON.parse(localStorage.getItem('pizzaCart')) || {};
+      const address = document.getElementById('address')?.value.trim();
 
       if (Object.keys(cart).length === 0) {
         alert("Корзина пуста!");
         return;
       }
 
+      if (!address) {
+        alert("Пожалуйста, введите адрес доставки!");
+        return;
+      }
+
       try {
-        const cart = JSON.parse(localStorage.getItem('pizzaCart')) || {};
-        console.log("Корзина перед отправкой:", cart);  // Убедись, что выводится корректно
+        console.log("Корзина перед отправкой:", cart);
         const response = await fetch('http://localhost:3000/api/orders', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ cart })
+          body: JSON.stringify({ cart, address })
         });
 
         if (response.ok) {
